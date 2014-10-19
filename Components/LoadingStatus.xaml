@@ -1,0 +1,117 @@
+﻿<UserControl x:Class="ArduinoManagementSystem.Components.LoadingStatus"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300" Visibility="Collapsed">
+    
+    <UserControl.Resources>
+
+        <SolidColorBrush x:Key="VintColor" Color="#212121" />
+        <SolidColorBrush x:Key="RefreshColor" Color="#212121" />
+
+    </UserControl.Resources>
+    <Grid>
+        <Button Name="StatusButton" HorizontalAlignment="Center" IsEnabled="False" Margin="0,2,14,0" VerticalAlignment="Center" >
+            <Button.Template>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Grid >
+                        <TextBlock Visibility="{Binding Visibility, ElementName=Green}" Text="Loading" FontFamily="Century Gothic" FontWeight="Bold" Margin="0,50,0,0" FontSize="14" Foreground="Black" Background="Transparent"></TextBlock>
+                        <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
+
+                            <Path Name="Green" Visibility="Visible" Opacity="0.7" Data="F1M76.353,402.212C76.353,414.045,85.947,423.64,97.781,423.64L97.781,423.64C109.616,423.64,119.209,414.045,119.209,402.212L119.209,402.212C119.209,390.377,109.616,380.784,97.781,380.784L97.781,380.784C85.947,380.784,76.353,390.377,76.353,402.212" Height="28.856"  Stretch="Fill" Width="28.856">
+                                <Path.Fill>
+                                    <RadialGradientBrush Center="0.482,0.882" GradientOrigin="0.482,0.882" RadiusY="0.554" RadiusX="0.554">
+                                        <GradientStop x:Name="gr1" Color="#FF2FFF00" Offset="0"/>
+                                        <GradientStop x:Name="gr2" Color="#FF006806" Offset="1"/>
+                                    </RadialGradientBrush>
+                                </Path.Fill>
+                            </Path>
+                            
+                            <Grid  Margin="1,1.5,0,0" Name="Rotation" Visibility="Visible">
+
+                                <Grid Height="28" Width="27" Opacity="0.2" RenderTransformOrigin="0.51,0.492">
+                                    <Grid.RenderTransform>
+                                        <RotateTransform x:Name="Icon1"  Angle="0"></RotateTransform>
+                                    </Grid.RenderTransform>
+                                    <Grid.Triggers>
+                                        <EventTrigger  RoutedEvent="Loaded">
+                                            <BeginStoryboard >
+                                                <Storyboard >
+                                                    <DoubleAnimation Storyboard.TargetName="Icon1" Storyboard.TargetProperty="Angle" From="0" To="360" Duration="0:0:0.75" BeginTime="0:0:0.1" RepeatBehavior="Forever"></DoubleAnimation>
+                                                </Storyboard>
+                                            </BeginStoryboard>
+                                        </EventTrigger>
+                                    </Grid.Triggers>
+                                    <Path Data="F1M105.1694,43.6592000000001L100.0404,48.9962000000001L106.6374,55.3352000000001L111.7654,49.9982000000001z" Fill="{StaticResource ResourceKey=VintColor}" Height="11.676" Opacity="1" Stretch="Fill" Width="11.725" UseLayoutRounding="False" HorizontalAlignment="Right" Margin="0,0,-0.334,0" VerticalAlignment="Top"/>
+                                    <Path Data="F1M91.0273,43.7842000000001L84.4313,50.1232000000001L86.7503,52.5362000000001L93.1213,45.9632000000001z" Fill="{StaticResource ResourceKey=VintColor}" Height="8.752" Opacity="1" Stretch="Fill" Width="8.69" UseLayoutRounding="False" HorizontalAlignment="Left" Margin="0,0.125,0,0" VerticalAlignment="Top"/>
+                                    <Path Data="F1M93.832,46.7030999999999L87.461,53.2770999999999L89.56,55.4600999999999L96.156,49.1210999999999z" Fill="{StaticResource ResourceKey=VintColor}" Height="8.757" Opacity="1" Stretch="Fill" Width="8.695" UseLayoutRounding="False" HorizontalAlignment="Left" Margin="3.03,3.044,0,0" VerticalAlignment="Top"/>
+                                    <Path Data="F1M98.103,60.7207C96.151,60.7207,94.568,59.1377,94.568,57.1847C94.568,55.2327,96.151,53.6507,98.103,53.6507C100.056,53.6507,101.638,55.2327,101.638,57.1847C101.638,59.1377,100.056,60.7207,98.103,60.7207 M98.103,50.4447C94.426,50.4447,91.444,53.4267,91.444,57.1027C91.444,60.7807,94.426,63.7627,98.103,63.7627C101.781,63.7627,104.762,60.7807,104.762,57.1027C104.762,53.4267,101.781,50.4447,98.103,50.4447" Fill="{StaticResource ResourceKey=VintColor}" Opacity="1" Stretch="Fill" UseLayoutRounding="False" Margin="7.172,6.944,6.51,7.738"/>
+                                    <Path Data="F1M93.5,67.667L102.708,67.667L102.708,64.1310000000001L93.5,64.1310000000001z" Fill="{StaticResource ResourceKey=VintColor}" Height="3.536" Opacity="1" Stretch="Fill" UseLayoutRounding="False" Margin="9.173,0,8.619,3.992" VerticalAlignment="Bottom"/>
+                                    <Path Data="F1M93.5,72.105L102.708,72.105L102.708,68.817L93.5,68.817z" Fill="{StaticResource ResourceKey=VintColor}" Height="3.288" Opacity="1" Stretch="Fill" UseLayoutRounding="False" Margin="9.173,0,8.619,-0.59" VerticalAlignment="Bottom"/>
+                                </Grid>
+                                <Grid Height="28" Width="27" Opacity="0.4" RenderTransformOrigin="0.51,0.492">
+                                    <Grid.RenderTransform>
+                                        <RotateTransform x:Name="Icon2"  Angle="0"></RotateTransform>
+                                    </Grid.RenderTransform>
+                                    <Grid.Triggers>
+                                        <EventTrigger  RoutedEvent="Loaded">
+                                            <BeginStoryboard >
+                                                <Storyboard >
+                                                    <DoubleAnimation Storyboard.TargetName="Icon2" Storyboard.TargetProperty="Angle" From="0" To="360" Duration="0:0:0.75" BeginTime="0:0:0.05" RepeatBehavior="Forever"></DoubleAnimation>
+                                                </Storyboard>
+                                            </BeginStoryboard>
+                                        </EventTrigger>
+                                    </Grid.Triggers>
+                                    <Path Data="F1M105.1694,43.6592000000001L100.0404,48.9962000000001L106.6374,55.3352000000001L111.7654,49.9982000000001z" Fill="{StaticResource ResourceKey=VintColor}" Height="11.676" Opacity="1" Stretch="Fill" Width="11.725" UseLayoutRounding="False" HorizontalAlignment="Right" Margin="0,0,-0.334,0" VerticalAlignment="Top"/>
+                                    <Path Data="F1M91.0273,43.7842000000001L84.4313,50.1232000000001L86.7503,52.5362000000001L93.1213,45.9632000000001z" Fill="{StaticResource ResourceKey=VintColor}" Height="8.752" Opacity="1" Stretch="Fill" Width="8.69" UseLayoutRounding="False" HorizontalAlignment="Left" Margin="0,0.125,0,0" VerticalAlignment="Top"/>
+                                    <Path Data="F1M93.832,46.7030999999999L87.461,53.2770999999999L89.56,55.4600999999999L96.156,49.1210999999999z" Fill="{StaticResource ResourceKey=VintColor}" Height="8.757" Opacity="1" Stretch="Fill" Width="8.695" UseLayoutRounding="False" HorizontalAlignment="Left" Margin="3.03,3.044,0,0" VerticalAlignment="Top"/>
+                                    <Path Data="F1M98.103,60.7207C96.151,60.7207,94.568,59.1377,94.568,57.1847C94.568,55.2327,96.151,53.6507,98.103,53.6507C100.056,53.6507,101.638,55.2327,101.638,57.1847C101.638,59.1377,100.056,60.7207,98.103,60.7207 M98.103,50.4447C94.426,50.4447,91.444,53.4267,91.444,57.1027C91.444,60.7807,94.426,63.7627,98.103,63.7627C101.781,63.7627,104.762,60.7807,104.762,57.1027C104.762,53.4267,101.781,50.4447,98.103,50.4447" Fill="{StaticResource ResourceKey=VintColor}" Opacity="1" Stretch="Fill" UseLayoutRounding="False" Margin="7.172,6.944,6.51,7.738"/>
+                                    <Path Data="F1M93.5,67.667L102.708,67.667L102.708,64.1310000000001L93.5,64.1310000000001z" Fill="{StaticResource ResourceKey=VintColor}" Height="3.536" Opacity="1" Stretch="Fill" UseLayoutRounding="False" Margin="9.173,0,8.619,3.992" VerticalAlignment="Bottom"/>
+                                    <Path Data="F1M93.5,72.105L102.708,72.105L102.708,68.817L93.5,68.817z" Fill="{StaticResource ResourceKey=VintColor}" Height="3.288" Opacity="1" Stretch="Fill" UseLayoutRounding="False" Margin="9.173,0,8.619,-0.59" VerticalAlignment="Bottom"/>
+                                </Grid>
+                                <Grid Height="28" Width="27" RenderTransformOrigin="0.51,0.492">
+                                    <Grid.RenderTransform>
+                                        <RotateTransform x:Name="Icon3"  Angle="0"></RotateTransform>
+                                    </Grid.RenderTransform>
+                                    <Grid.Triggers>
+                                        <EventTrigger  RoutedEvent="Loaded">
+                                            <BeginStoryboard >
+                                                <Storyboard >
+                                                    <DoubleAnimation Storyboard.TargetName="Icon3" Storyboard.TargetProperty="Angle" From="0" To="360" Duration="0:0:0.75" RepeatBehavior="Forever"></DoubleAnimation>
+                                                </Storyboard>
+                                            </BeginStoryboard>
+                                        </EventTrigger>
+                                    </Grid.Triggers>
+                                    <Path Data="F1M105.1694,43.6592000000001L100.0404,48.9962000000001L106.6374,55.3352000000001L111.7654,49.9982000000001z" Fill="{StaticResource ResourceKey=VintColor}" Height="11.676" Opacity="1" Stretch="Fill" Width="11.725" UseLayoutRounding="False" HorizontalAlignment="Right" Margin="0,0,-0.334,0" VerticalAlignment="Top"/>
+                                    <Path Data="F1M91.0273,43.7842000000001L84.4313,50.1232000000001L86.7503,52.5362000000001L93.1213,45.9632000000001z" Fill="{StaticResource ResourceKey=VintColor}" Height="8.752" Opacity="1" Stretch="Fill" Width="8.69" UseLayoutRounding="False" HorizontalAlignment="Left" Margin="0,0.125,0,0" VerticalAlignment="Top"/>
+                                    <Path Data="F1M93.832,46.7030999999999L87.461,53.2770999999999L89.56,55.4600999999999L96.156,49.1210999999999z" Fill="{StaticResource ResourceKey=VintColor}" Height="8.757" Opacity="1" Stretch="Fill" Width="8.695" UseLayoutRounding="False" HorizontalAlignment="Left" Margin="3.03,3.044,0,0" VerticalAlignment="Top"/>
+                                    <Path Data="F1M98.103,60.7207C96.151,60.7207,94.568,59.1377,94.568,57.1847C94.568,55.2327,96.151,53.6507,98.103,53.6507C100.056,53.6507,101.638,55.2327,101.638,57.1847C101.638,59.1377,100.056,60.7207,98.103,60.7207 M98.103,50.4447C94.426,50.4447,91.444,53.4267,91.444,57.1027C91.444,60.7807,94.426,63.7627,98.103,63.7627C101.781,63.7627,104.762,60.7807,104.762,57.1027C104.762,53.4267,101.781,50.4447,98.103,50.4447" Fill="{StaticResource ResourceKey=VintColor}" Opacity="1" Stretch="Fill" UseLayoutRounding="False" Margin="7.172,6.944,6.51,7.738"/>
+                                    <Path Data="F1M93.5,67.667L102.708,67.667L102.708,64.1310000000001L93.5,64.1310000000001z" Fill="{StaticResource ResourceKey=VintColor}" Height="3.536" Opacity="1" Stretch="Fill" UseLayoutRounding="False" Margin="9.173,0,8.619,3.992" VerticalAlignment="Bottom"/>
+                                    <Path Data="F1M93.5,72.105L102.708,72.105L102.708,68.817L93.5,68.817z" Fill="{StaticResource ResourceKey=VintColor}" Height="3.288" Opacity="1" Stretch="Fill" UseLayoutRounding="False" Margin="9.173,0,8.619,-0.59" VerticalAlignment="Bottom"/>
+                                </Grid>
+
+                            </Grid>
+                            <Path Name="Stop" Data="F1M194.4517,200.1353L182.0327,185.8453C183.5217,184.8913,185.2877,184.3313,187.1877,184.3313C192.4757,184.3313,196.7637,188.6183,196.7637,193.9063C196.7637,196.2873,195.8897,198.4603,194.4517,200.1353 M187.1877,203.4813C181.8997,203.4813,177.6127,199.1953,177.6127,193.9063C177.6127,191.5293,178.4837,189.3583,179.9187,187.6843L192.3347,201.9713C190.8477,202.9233,189.0847,203.4813,187.1877,203.4813 M187.2327,181.6873C180.4347,181.6873,174.9247,187.1983,174.9247,193.9953C174.9247,200.7933,180.4347,206.3033,187.2327,206.3033C194.0307,206.3033,199.5397,200.7933,199.5397,193.9953C199.5397,187.1983,194.0307,181.6873,187.2327,181.6873" Fill="#FFFFEBFF" Height="20.616" Opacity="0" Stretch="Fill" Width="20.615"/>
+                        </Grid>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="Content" Value="True">
+                            <Setter TargetName="Rotation" Property="Visibility"  Value="Visible"/>
+                            <Setter TargetName="Green" Property="Visibility"  Value="Visible"/>
+                        </Trigger>
+                        <Trigger Property="Content" Value="False">
+                            <Setter TargetName="Rotation" Property="Visibility"  Value="Collapsed"/>
+                            <Setter TargetName="Green" Property="Visibility"  Value="Collapsed"/>
+                        </Trigger>
+
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+
+            </Button.Template>
+
+
+        </Button>
+    </Grid>
+</UserControl>

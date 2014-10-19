@@ -1,0 +1,96 @@
+﻿<UserControl x:Class="ArduinoManagementSystem.Components.MusicPlayer.Control.PlayerComponents.Timer"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:System="clr-namespace:System;assembly=mscorlib" mc:Ignorable="d" 
+             d:DesignHeight="41"  Background="Transparent" d:DesignWidth="96">
+    <UserControl.Resources>
+        <System:Double x:Key="Top0" >-19</System:Double>
+        <System:Double x:Key="Top1" >11</System:Double>
+        <System:Double x:Key="Top2" >41</System:Double>
+        <Duration x:Key="AnimationTime">0:0:0.60</Duration>
+        
+        <System:Double x:Key="Height1" >21</System:Double>
+        <System:Double x:Key="Height2" >10</System:Double>
+        <PowerEase x:Key="Ease" Power="3"></PowerEase>
+        <Storyboard x:Key="img1FromCenter">
+            <DoubleAnimation EasingFunction="{StaticResource Ease}" Storyboard.TargetName="img1" Storyboard.TargetProperty="(Canvas.Top)" From="{StaticResource Top1}" To="{StaticResource Top0}"   Duration="{StaticResource AnimationTime}" />
+            <DoubleAnimation EasingFunction="{StaticResource Ease}" Storyboard.TargetName="img11" Storyboard.TargetProperty="(Canvas.Top)" From="{StaticResource Top2}" To="{StaticResource Top1}"   Duration="{StaticResource AnimationTime}" />
+            <DoubleAnimation EasingFunction="{StaticResource Ease}" Storyboard.TargetName="img1" Storyboard.TargetProperty="Height" From="{StaticResource Height1}" To="{StaticResource Height2}"   Duration="{StaticResource AnimationTime}" />
+            <DoubleAnimation EasingFunction="{StaticResource Ease}" Storyboard.TargetName="img11" Storyboard.TargetProperty="Height" From="{StaticResource Height2}" To="{StaticResource Height1}"   Duration="{StaticResource AnimationTime}" />
+        </Storyboard>
+        <Storyboard x:Key="img1FromBottom">
+            <DoubleAnimation EasingFunction="{StaticResource Ease}" Storyboard.TargetName="img1" Storyboard.TargetProperty="(Canvas.Top)" From="{StaticResource Top2}" To="{StaticResource Top1}"   Duration="{StaticResource AnimationTime}" />
+            <DoubleAnimation EasingFunction="{StaticResource Ease}" Storyboard.TargetName="img11" Storyboard.TargetProperty="(Canvas.Top)" From="{StaticResource Top1}" To="{StaticResource Top0}"   Duration="{StaticResource AnimationTime}" />
+            <DoubleAnimation EasingFunction="{StaticResource Ease}" Storyboard.TargetName="img1" Storyboard.TargetProperty="Height" From="{StaticResource Height2}" To="{StaticResource Height1}"   Duration="{StaticResource AnimationTime}" />
+            <DoubleAnimation EasingFunction="{StaticResource Ease}" Storyboard.TargetName="img11" Storyboard.TargetProperty="Height" From="{StaticResource Height1}" To="{StaticResource Height2}"   Duration="{StaticResource AnimationTime}" />
+
+
+        </Storyboard>
+
+        <Storyboard x:Key="img2FromCenter">
+            <DoubleAnimation EasingFunction="{StaticResource Ease}" Storyboard.TargetName="img2" Storyboard.TargetProperty="(Canvas.Top)" From="{StaticResource Top1}" To="{StaticResource Top0}"   Duration="{StaticResource AnimationTime}" />
+            <DoubleAnimation EasingFunction="{StaticResource Ease}" Storyboard.TargetName="img22" Storyboard.TargetProperty="(Canvas.Top)" From="{StaticResource Top2}" To="{StaticResource Top1}"   Duration="{StaticResource AnimationTime}" />
+            <DoubleAnimation EasingFunction="{StaticResource Ease}" Storyboard.TargetName="img2" Storyboard.TargetProperty="Height" From="{StaticResource Height1}" To="{StaticResource Height2}"   Duration="{StaticResource AnimationTime}" />
+            <DoubleAnimation EasingFunction="{StaticResource Ease}" Storyboard.TargetName="img22" Storyboard.TargetProperty="Height" From="{StaticResource Height2}" To="{StaticResource Height1}"   Duration="{StaticResource AnimationTime}" />
+
+
+        </Storyboard>
+        <Storyboard x:Key="img2FromBottom">
+            <DoubleAnimation EasingFunction="{StaticResource Ease}" Storyboard.TargetName="img2" Storyboard.TargetProperty="(Canvas.Top)" From="{StaticResource Top2}" To="{StaticResource Top1}"   Duration="{StaticResource AnimationTime}" />
+            <DoubleAnimation EasingFunction="{StaticResource Ease}" Storyboard.TargetName="img22" Storyboard.TargetProperty="(Canvas.Top)" From="{StaticResource Top1}" To="{StaticResource Top0}"   Duration="{StaticResource AnimationTime}" />
+            <DoubleAnimation EasingFunction="{StaticResource Ease}" Storyboard.TargetName="img2" Storyboard.TargetProperty="Height" From="{StaticResource Height2}" To="{StaticResource Height1}"   Duration="{StaticResource AnimationTime}" />
+            <DoubleAnimation EasingFunction="{StaticResource Ease}" Storyboard.TargetName="img22" Storyboard.TargetProperty="Height" From="{StaticResource Height1}" To="{StaticResource Height2}"   Duration="{StaticResource AnimationTime}" />
+
+        </Storyboard>
+
+        <Storyboard x:Key="img3FromCenter">
+            <DoubleAnimation EasingFunction="{StaticResource Ease}" Storyboard.TargetName="img3" Storyboard.TargetProperty="(Canvas.Top)" From="{StaticResource Top1}" To="{StaticResource Top0}"   Duration="{StaticResource AnimationTime}" />
+            <DoubleAnimation EasingFunction="{StaticResource Ease}" Storyboard.TargetName="img33" Storyboard.TargetProperty="(Canvas.Top)" From="{StaticResource Top2}" To="{StaticResource Top1}"   Duration="{StaticResource AnimationTime}" />
+            <DoubleAnimation EasingFunction="{StaticResource Ease}" Storyboard.TargetName="img3" Storyboard.TargetProperty="Height" From="{StaticResource Height1}" To="{StaticResource Height2}"   Duration="{StaticResource AnimationTime}" />
+            <DoubleAnimation EasingFunction="{StaticResource Ease}" Storyboard.TargetName="img33" Storyboard.TargetProperty="Height" From="{StaticResource Height2}" To="{StaticResource Height1}"   Duration="{StaticResource AnimationTime}" />
+
+        </Storyboard>
+        <Storyboard x:Key="img3FromBottom">
+            <DoubleAnimation EasingFunction="{StaticResource Ease}" Storyboard.TargetName="img3" Storyboard.TargetProperty="(Canvas.Top)" From="{StaticResource Top2}" To="{StaticResource Top1}"   Duration="{StaticResource AnimationTime}" />
+            <DoubleAnimation EasingFunction="{StaticResource Ease}" Storyboard.TargetName="img33" Storyboard.TargetProperty="(Canvas.Top)" From="{StaticResource Top1}" To="{StaticResource Top0}"   Duration="{StaticResource AnimationTime}" />
+            <DoubleAnimation EasingFunction="{StaticResource Ease}" Storyboard.TargetName="img3" Storyboard.TargetProperty="Height" From="{StaticResource Height2}" To="{StaticResource Height1}"   Duration="{StaticResource AnimationTime}" />
+            <DoubleAnimation EasingFunction="{StaticResource Ease}" Storyboard.TargetName="img33" Storyboard.TargetProperty="Height" From="{StaticResource Height1}" To="{StaticResource Height2}"   Duration="{StaticResource AnimationTime}" />
+
+        </Storyboard>
+
+        <Storyboard x:Key="img4FromCenter">
+            <DoubleAnimation EasingFunction="{StaticResource Ease}" Storyboard.TargetName="img4" Storyboard.TargetProperty="(Canvas.Top)" From="{StaticResource Top1}" To="{StaticResource Top0}"   Duration="{StaticResource AnimationTime}" />
+            <DoubleAnimation EasingFunction="{StaticResource Ease}" Storyboard.TargetName="img44" Storyboard.TargetProperty="(Canvas.Top)" From="{StaticResource Top2}" To="{StaticResource Top1}"   Duration="{StaticResource AnimationTime}" />
+            <DoubleAnimation EasingFunction="{StaticResource Ease}" Storyboard.TargetName="img4" Storyboard.TargetProperty="Height" From="{StaticResource Height1}" To="{StaticResource Height2}"   Duration="{StaticResource AnimationTime}" />
+            <DoubleAnimation EasingFunction="{StaticResource Ease}" Storyboard.TargetName="img44" Storyboard.TargetProperty="Height" From="{StaticResource Height2}" To="{StaticResource Height1}"   Duration="{StaticResource AnimationTime}" />
+       
+        </Storyboard>
+        <Storyboard x:Key="img4FromBottom">
+            <DoubleAnimation EasingFunction="{StaticResource Ease}" Storyboard.TargetName="img4" Storyboard.TargetProperty="(Canvas.Top)" From="{StaticResource Top2}" To="{StaticResource Top1}"   Duration="{StaticResource AnimationTime}" />
+            <DoubleAnimation EasingFunction="{StaticResource Ease}" Storyboard.TargetName="img44" Storyboard.TargetProperty="(Canvas.Top)" From="{StaticResource Top1}" To="{StaticResource Top0}"   Duration="{StaticResource AnimationTime}" />
+            <DoubleAnimation EasingFunction="{StaticResource Ease}" Storyboard.TargetName="img4" Storyboard.TargetProperty="Height" From="{StaticResource Height2}" To="{StaticResource Height1}"   Duration="{StaticResource AnimationTime}" />
+            <DoubleAnimation EasingFunction="{StaticResource Ease}" Storyboard.TargetName="img44" Storyboard.TargetProperty="Height" From="{StaticResource Height1}" To="{StaticResource Height2}"   Duration="{StaticResource AnimationTime}" />
+
+          </Storyboard>
+    </UserControl.Resources>
+    <Canvas>
+        <Image x:Name="bg1" RenderOptions.BitmapScalingMode="Fant"  Source="/Components\MusicPlayer\Control\Images\bg.png" Stretch="Fill" Height="41" Width="96"  Canvas.Left="0" Canvas.Top="0"></Image>
+        <Canvas   Height="41" Width="96">
+            <Canvas.Clip>
+                <RectangleGeometry Rect="0,2,96,36"></RectangleGeometry>
+            </Canvas.Clip>
+            <Image x:Name="img1" RenderOptions.BitmapScalingMode="Fant"  Source="/Components\MusicPlayer\Control\Images\0.png" Stretch="Fill"  Height="{StaticResource Height1}" Canvas.Left="5"   Canvas.Top="{StaticResource Top1}"    Width="15"></Image>
+            <Image x:Name="img11" RenderOptions.BitmapScalingMode="Fant"  Source="/Components\MusicPlayer\Control\Images\0.png" Stretch="Fill" Height="{StaticResource Height1}" Canvas.Left="5"   Canvas.Top="{StaticResource Top2}"   Width="15"></Image>
+            <Image x:Name="img2" RenderOptions.BitmapScalingMode="Fant"  Source="/Components\MusicPlayer\Control\Images\0.png" Stretch="Fill"  Height="{StaticResource Height1}"  Canvas.Left="26" Canvas.Top="{StaticResource Top1}"  Width="15"></Image>
+            <Image x:Name="img22" RenderOptions.BitmapScalingMode="Fant"  Source="/Components\MusicPlayer\Control\Images\0.png" Stretch="Fill" Height="{StaticResource Height1}"  Canvas.Left="26" Canvas.Top="{StaticResource Top2}" Width="15"></Image>
+            <Image x:Name="img3" RenderOptions.BitmapScalingMode="Fant"  Source="/Components\MusicPlayer\Control\Images\0.png" Stretch="Fill"  Height="{StaticResource Height1}"  Canvas.Left="57" Canvas.Top="{StaticResource Top1}"  Width="15"></Image>
+            <Image x:Name="img33" RenderOptions.BitmapScalingMode="Fant"  Source="/Components\MusicPlayer\Control\Images\0.png" Stretch="Fill" Height="{StaticResource Height1}"  Canvas.Left="57" Canvas.Top="{StaticResource Top2}" Width="15"></Image>
+            <Image x:Name="img4" RenderOptions.BitmapScalingMode="Fant" Source="/Components\MusicPlayer\Control\Images\0.png" Stretch="Fill"   Height="{StaticResource Height1}"  Canvas.Left="77" Canvas.Top="{StaticResource Top1}"  Width="15"/>
+ 
+            <Image x:Name="img44" RenderOptions.BitmapScalingMode="Fant" Source="/Components\MusicPlayer\Control\Images\0.png" Stretch="Fill"  Height="{StaticResource Height1}"  Canvas.Left="77" Canvas.Top="{StaticResource Top2}" Width="15"/>
+ 
+        </Canvas>
+    </Canvas>
+</UserControl>

@@ -1,0 +1,87 @@
+﻿<UserControl x:Class="ArduinoManagementSystem.Components.MusicPlayer.Control.PlayerComponents.PlayListFolderHeader"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d"  >
+
+    <Grid  HorizontalAlignment="Stretch">
+        <Grid.Background>
+            <ImageBrush ImageSource="/Components\MusicPlayer\Control\Images\playlistBG.png" />
+        </Grid.Background>
+        <Grid.Triggers>
+            <EventTrigger RoutedEvent="Mouse.MouseEnter">
+                <BeginStoryboard>
+                    <Storyboard TargetName="ButtonsPannel" TargetProperty="Opacity">
+                        <DoubleAnimation To="1" From="0" Duration="0:0:0.1"></DoubleAnimation>
+                    </Storyboard>
+                </BeginStoryboard>
+            </EventTrigger>
+            <EventTrigger RoutedEvent="Mouse.MouseLeave">
+                <BeginStoryboard>
+                    <Storyboard TargetName="ButtonsPannel" TargetProperty="Opacity">
+                        <DoubleAnimation To="0" From="1" Duration="0:0:0.1"></DoubleAnimation>
+                    </Storyboard>
+                </BeginStoryboard>
+            </EventTrigger>
+        </Grid.Triggers>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+            <TextBlock x:Name="FolderName" Foreground="Silver" FontWeight="Bold" Text="FolderName" HorizontalAlignment="Stretch"  TextAlignment="Center"  Height="20" ></TextBlock>
+            <TextBlock x:Name="TracksCount"  Foreground="Teal"  Text=""   Margin="5,0,0,0" TextAlignment="Center"  Height="20" ></TextBlock>
+        </StackPanel>
+  
+        <Grid x:Name="ButtonsPannel" Opacity="0">
+            <Grid x:Name="Remove" Background="Transparent"  HorizontalAlignment="Right" MouseEnter="Remove_OnMouseEnter" MouseLeave="Remove_OnMouseLeave" Width="13" Height="13" Margin="0,0,5,0">
+                <Ellipse x:Name="RemoveEllipse" StrokeThickness="1" Stroke="DarkRed"></Ellipse>
+                <Line X1="3.5" Y1="3.5" X2="9.5" Y2="9.5" StrokeThickness="2"  Stroke="{Binding Stroke, ElementName=RemoveEllipse, Mode=TwoWay}"></Line>
+                <Line X1="9.5" Y1="3.5" X2="3.5" Y2="9.5" StrokeThickness="2" Stroke="{Binding Stroke, ElementName=RemoveEllipse, Mode=TwoWay}"></Line>
+            </Grid>
+            <Grid x:Name="Refresh" Background="Transparent"  HorizontalAlignment="Right" MouseEnter="Refresh_OnMouseEnter" MouseLeave="Refresh_OnMouseLeave" Width="12" Height="12" Margin="0,0,25,0">
+                <Grid Margin="0,1,0,-1">
+                    <Ellipse x:Name="RefreshEllipse" StrokeThickness="1" Stroke="Orange">
+                        <Ellipse.Clip>
+                            <RectangleGeometry Rect="0,0,6.5,10"></RectangleGeometry>
+                        </Ellipse.Clip>
+                    </Ellipse>
+                    <Rectangle Fill="Transparent" Margin="6.5,0,0,6.5" StrokeThickness="1" Width="4.5" Height="4.5" Stroke="{Binding Stroke, ElementName=RefreshEllipse, Mode=TwoWay}">
+                        <Rectangle.Clip>
+                            <RectangleGeometry Rect="0,0,3.5,3.5"></RectangleGeometry>
+                        </Rectangle.Clip>
+                        <Rectangle.RenderTransform>
+                            <RotateTransform Angle="135"></RotateTransform>
+                        </Rectangle.RenderTransform>
+                    </Rectangle>
+                </Grid>
+                <Grid Margin="-1,0,1,0">
+                    <Grid Margin="13,11,-13,-11">
+                        <Grid.RenderTransform>
+                            <RotateTransform Angle="180"></RotateTransform>
+                        </Grid.RenderTransform>
+                        <Ellipse StrokeThickness="1" Stroke="{Binding Stroke, ElementName=RefreshEllipse, Mode=TwoWay}">
+                            <Ellipse.Clip>
+                                <RectangleGeometry Rect="0,0,6.5,10"></RectangleGeometry>
+                            </Ellipse.Clip>
+                        </Ellipse>
+                        <Rectangle Fill="Transparent" Margin="6.5,-6.5,0,0" StrokeThickness="1" Width="4.5" Height="4.5" Stroke="{Binding Stroke, ElementName=RefreshEllipse, Mode=TwoWay}">
+                            <Rectangle.Clip>
+                                <RectangleGeometry Rect="0,0,3.5,3.5"></RectangleGeometry>
+                            </Rectangle.Clip>
+                            <Rectangle.RenderTransform>
+                                <RotateTransform Angle="135"></RotateTransform>
+                            </Rectangle.RenderTransform>
+                        </Rectangle>
+                    </Grid>
+                </Grid>
+
+            </Grid>
+            <Grid x:Name="Add" Background="Transparent"  HorizontalAlignment="Right" MouseEnter="Add_OnMouseEnter" MouseLeave="Add_OnMouseLeave" Width="13" Height="13" Margin="0,0,45,0">
+                <Ellipse x:Name="AddEllipse" StrokeThickness="1" Stroke="Green"></Ellipse>
+                <Line X1="6.5" Y1="2" X2="6.5" Y2="11" StrokeThickness="2"  Stroke="{Binding Stroke, ElementName=AddEllipse, Mode=TwoWay}"></Line>
+                <Line X1="2" Y1="6.5" X2="11" Y2="6.5" StrokeThickness="2" Stroke="{Binding Stroke, ElementName=AddEllipse, Mode=TwoWay}"></Line>
+            </Grid>
+        </Grid>
+        
+        <!--<Button Content="Remove" Height="15" HorizontalAlignment="Left" VerticalContentAlignment="Center"  Margin="231,3,0,0" VerticalAlignment="Top" Width="75" x:Name="RemoveButton" />-->
+    </Grid>
+
+</UserControl >

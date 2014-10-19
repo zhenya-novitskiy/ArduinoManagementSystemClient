@@ -1,0 +1,207 @@
+﻿<UserControl x:Class="ArduinoManagementSystem.Components.ColorChanger.Control.ColorChangerComponents.ColorSelector"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:ColorChangerComponents="clr-namespace:ArduinoManagementSystem.Components.ColorChanger.Control.ColorChangerComponents"
+             xmlns:System="clr-namespace:System;assembly=mscorlib" mc:Ignorable="d" 
+             d:DesignHeight="358" d:DesignWidth="390" Background="Transparent" MouseEnter="paleteBlack_MouseEnter" MouseLeave="paleteBlack_MouseLeave">
+    <UserControl.Resources>
+
+        <Storyboard x:Key="MouseDown">
+            <DoubleAnimation Storyboard.TargetName="changerLigth" Storyboard.TargetProperty="Opacity"  To="1"   Duration="0:0:0.10" />
+        </Storyboard>
+        <Storyboard x:Key="MouseUp">
+            <DoubleAnimation Storyboard.TargetName="changerLigth" Storyboard.TargetProperty="Opacity"  To="0"   Duration="0:0:0.30" />
+        </Storyboard>
+        <Storyboard x:Key="MouseDown2">
+            <DoubleAnimation Storyboard.TargetName="palette" Storyboard.TargetProperty="Opacity"  To="1"   Duration="0:0:0.50" />
+        </Storyboard>
+        <Storyboard x:Key="MouseUp2">
+            <DoubleAnimation Storyboard.TargetName="palette" Storyboard.TargetProperty="Opacity"  To="0"   Duration="0:0:0.50" />
+        </Storyboard>
+
+
+        <System:Double x:Key="BlurRadius">25</System:Double>
+
+        <System:Double x:Key="BlurRadius2">15</System:Double>
+        <Style x:Key="CustomThumbForSlider" TargetType="{x:Type Thumb}">
+            <Setter Property="OverridesDefaultStyle" Value="True"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Thumb}">
+                        <Grid Height="53"  Width="27" >
+                            <Grid.RenderTransform>
+                                <TransformGroup>
+                                    <RotateTransform Angle="90"></RotateTransform>
+                                    <TranslateTransform X="60" Y="-18"></TranslateTransform>
+                                </TransformGroup>
+                            </Grid.RenderTransform>
+                            <Grid.Triggers>
+                                <EventTrigger RoutedEvent="MouseEnter" >
+                                    <EventTrigger.Actions>
+                                        <BeginStoryboard Storyboard="{StaticResource MouseUp}"/>
+                                    </EventTrigger.Actions>
+                                </EventTrigger>
+                                <EventTrigger RoutedEvent="MouseDown" >
+                                    <EventTrigger.Actions >
+                                        <BeginStoryboard Storyboard="{StaticResource MouseDown}"/>
+                                    </EventTrigger.Actions>
+                               </EventTrigger>
+
+                            </Grid.Triggers>
+                            <Rectangle  Opacity="0" Fill="{Binding FinalColor}" Canvas.Top="0" Height="53" Stroke="Transparent" x:Name="changerLigth"  Width="27" >
+                                <Rectangle.Effect>
+                                    <BlurEffect Radius="25"></BlurEffect>
+                                </Rectangle.Effect>
+                            </Rectangle>
+                            <Image   Height="53"  Width="27"  Stretch="Fill"  Source="/ArduinoManagementSystem;component/Components/ColorChanger/Control/Images/changer.png"  />
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="MyCustomStyleForSlider" TargetType="{x:Type Slider}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Slider}">
+                        <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto" MinHeight="{TemplateBinding MinHeight}"/>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+                                <TickBar x:Name="TopTick" Visibility="Collapsed" Fill="{TemplateBinding Foreground}" Placement="Top" Height="4" Grid.Row="0"/>
+                                <TickBar x:Name="BottomTick" Visibility="Collapsed" Fill="{TemplateBinding Foreground}" Placement="Bottom" Height="4" Grid.Row="0"/>
+
+                                <Track x:Name="PART_Track" Grid.Row="1">
+                                    <Track.Thumb>
+                                        <Thumb  x:Name="Thumb" Style="{StaticResource CustomThumbForSlider}" Background="Black" />
+                                    </Track.Thumb>
+                                </Track>
+                            </Grid>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+
+    </UserControl.Resources>
+    <Canvas Background="Transparent">
+        <Image Canvas.Left="53" Canvas.Top="126" Width="15" Name="palette2" Stretch="Fill"  Source="/ArduinoManagementSystem;component/Components/ColorChanger/Control/Images/choserBG.png" />
+        <Image Canvas.Left="54" Canvas.Top="127" Width="13" Opacity="0" Name="palette" Stretch="Fill"  Source="/ArduinoManagementSystem;component/Components/ColorChanger/Control/Images/palette.png" Height="208" />
+
+
+        <Image Canvas.Left="0" Canvas.Top="0" Height="358" Name="background" Stretch="Fill"  Source="/ArduinoManagementSystem;component/Components/ColorChanger/Control/Images/background.png" Width="390" />
+        <Label Content="Chanel 1" FontFamily="Rockwell" FontSize="14" x:Name="ChanelTitle" FontWeight="ExtraBold" Foreground="#838384" Canvas.Left="15" Canvas.Top="7">
+            <Label.Effect>
+                <DropShadowEffect Color="Black" Direction="150" BlurRadius="2" ShadowDepth="2"></DropShadowEffect>
+            </Label.Effect>
+        </Label>
+        <!--<ColorChangerComponents:DigitDisplay x:Name="ChanelTitle" Width="40" Height="20" DigitsCount="8" Canvas.Top="11" Canvas.Left="12">
+            <ColorChangerComponents:DigitDisplay.RenderTransform>
+                <ScaleTransform ScaleY="0.6" ScaleX="0.6"></ScaleTransform>
+            </ColorChangerComponents:DigitDisplay.RenderTransform>
+        </ColorChangerComponents:DigitDisplay>-->
+
+        <ColorChangerComponents:ColorLevelsDisplay x:Name="ColorLevelsDisplay" Height="50" Width="245" Canvas.Left="115" Canvas.Top="41"></ColorChangerComponents:ColorLevelsDisplay>
+        <Slider Canvas.Left="65" Canvas.Top="364" Maximum="185" Value="185" Height="68" Style="{StaticResource MyCustomStyleForSlider}"  x:Name="slider1" Width="224" ValueChanged="slider1_ValueChanged" >
+            <Slider.RenderTransform>
+                <RotateTransform Angle="-90"></RotateTransform>
+            </Slider.RenderTransform>
+        </Slider>
+
+
+        <!--<Canvas Canvas.Left="47" Canvas.Top="200" Name="changer" MouseLeftButtonDown="changer_MouseLeftButtonDown" MouseLeftButtonUp="changer_MouseLeftButtonUp" MouseMove="changer_MouseMove">
+            <Rectangle  Opacity="0" Fill="Red" Canvas.Top="0" Height="53" Stroke="Transparent" Name="changerLigth"  Width="27" >
+                <Rectangle.Effect>
+                    <BlurEffect Radius="25"></BlurEffect>
+                </Rectangle.Effect>
+            </Rectangle>
+            <Image   Height="53"  Width="27"  Stretch="Fill"  Source="/ArduinoManagementSystem;component/Components/ColorChanger/Control/Images/changer.png"  />
+        </Canvas>-->
+        <ColorChangerComponents:ColorSlider x:Name="ColorSliderForRed" Height="214" Width="82" Canvas.Left="140" Canvas.Top="126"></ColorChangerComponents:ColorSlider>
+        <ColorChangerComponents:ColorSlider x:Name="ColorSliderForGreen" Height="214" Width="82" Canvas.Left="222" Canvas.Top="126"></ColorChangerComponents:ColorSlider>
+        <ColorChangerComponents:ColorSlider x:Name="ColorSliderForBlue" Height="214" Width="82" Canvas.Left="301" Canvas.Top="126"></ColorChangerComponents:ColorSlider>
+
+
+
+        <Canvas>
+            <Ellipse Canvas.Left="68" Opacity="1" Fill="{Binding FinalColor,  FallbackValue=#ffff00}" Canvas.Top="63" Height="20"  Stroke="Transparent" Width="20" >
+                <Ellipse.Effect>
+                    <BlurEffect Radius="{StaticResource BlurRadius2}"></BlurEffect>
+                </Ellipse.Effect>
+            </Ellipse>
+            <Ellipse Canvas.Left="68" Fill="{Binding FinalColor, FallbackValue=#ffff00}" Canvas.Top="63" Height="20"  Stroke="Transparent" Width="20" >
+                <Ellipse.Effect>
+                    <BlurEffect Radius="{StaticResource BlurRadius}"></BlurEffect>
+                </Ellipse.Effect>
+            </Ellipse>
+        </Canvas>
+        <Canvas Canvas.Left="-19">
+            <Ellipse Canvas.Left="68" Opacity="1" Fill="{Binding FinalColor,  FallbackValue=#ffff00}" Canvas.Top="63" Height="20"  Stroke="Transparent" Width="20" >
+                <Ellipse.Effect>
+                    <BlurEffect Radius="{StaticResource BlurRadius2}"></BlurEffect>
+                </Ellipse.Effect>
+            </Ellipse>
+            <Ellipse Canvas.Left="68" Fill="{Binding FinalColor, FallbackValue=#ffff00}" Canvas.Top="63" Height="20"  Stroke="Transparent" Width="20" >
+                <Ellipse.Effect>
+                    <BlurEffect Radius="{StaticResource BlurRadius}"></BlurEffect>
+                </Ellipse.Effect>
+            </Ellipse>
+        </Canvas>
+        <Canvas Canvas.Left="-38">
+            <Ellipse Canvas.Left="68" Opacity="1" Fill="{Binding FinalColor,  FallbackValue=#ffff00}" Canvas.Top="63" Height="20"  Stroke="Transparent" Width="20" >
+                <Ellipse.Effect>
+                    <BlurEffect Radius="{StaticResource BlurRadius2}"></BlurEffect>
+                </Ellipse.Effect>
+            </Ellipse>
+            <Ellipse Canvas.Left="68" Fill="{Binding FinalColor, FallbackValue=#ffff00}" Canvas.Top="63" Height="20"  Stroke="Transparent" Width="20" >
+                <Ellipse.Effect>
+                    <BlurEffect Radius="{StaticResource BlurRadius}"></BlurEffect>
+                </Ellipse.Effect>
+            </Ellipse>
+        </Canvas>
+ 
+  
+        <Canvas Canvas.Left="-38"  Canvas.Top="21">
+            <Ellipse Canvas.Left="68" Opacity="1" Fill="{Binding FinalColor,  FallbackValue=#ffff00}" Canvas.Top="63" Height="20"  Stroke="Transparent" Width="20" >
+                <Ellipse.Effect>
+                    <BlurEffect Radius="{StaticResource BlurRadius2}"></BlurEffect>
+                </Ellipse.Effect>
+            </Ellipse>
+            <Ellipse Canvas.Left="68" Fill="{Binding FinalColor, FallbackValue=#ffff00}" Canvas.Top="63" Height="20"  Stroke="Transparent" Width="20" >
+                <Ellipse.Effect>
+                    <BlurEffect Radius="{StaticResource BlurRadius}"></BlurEffect>
+                </Ellipse.Effect>
+            </Ellipse>
+        </Canvas>
+        <Canvas Canvas.Top="21" Canvas.Left="-19">
+            <Ellipse Canvas.Left="68" Opacity="1" Fill="{Binding FinalColor,  FallbackValue=#ffff00}" Canvas.Top="63" Height="20"  Stroke="Transparent" Width="20" >
+                <Ellipse.Effect>
+                    <BlurEffect Radius="{StaticResource BlurRadius2}"></BlurEffect>
+                </Ellipse.Effect>
+            </Ellipse>
+            <Ellipse Canvas.Left="68" Fill="{Binding FinalColor, FallbackValue=#ffff00 }" Canvas.Top="63" Height="20"  Stroke="Transparent" Width="20" >
+                <Ellipse.Effect>
+                    <BlurEffect Radius="{StaticResource BlurRadius}"></BlurEffect>
+                </Ellipse.Effect>
+            </Ellipse>
+        </Canvas>
+        <Canvas Canvas.Top="21">
+            <Ellipse Canvas.Left="68" Opacity="1" Fill="{Binding FinalColor,  FallbackValue=#ffff00}" Canvas.Top="63" Height="20"  Stroke="Transparent" Width="20" >
+                <Ellipse.Effect>
+                    <BlurEffect Radius="{StaticResource BlurRadius2}"></BlurEffect>
+                </Ellipse.Effect>
+            </Ellipse>
+            <Ellipse Canvas.Left="68" Fill="{Binding FinalColor, FallbackValue=#ffff00}" Canvas.Top="63" Height="20"  Stroke="Transparent" Width="20" >
+                <Ellipse.Effect>
+                    <BlurEffect Radius="{StaticResource BlurRadius}"></BlurEffect>
+                </Ellipse.Effect>
+            </Ellipse>
+        </Canvas>
+    </Canvas>
+</UserControl>

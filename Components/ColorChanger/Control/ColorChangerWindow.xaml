@@ -1,0 +1,9 @@
+﻿<Window x:Class="ArduinoManagementSystem.Components.ColorChanger.Control.ColorChangerWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:MyNamespace="clr-namespace:ArduinoManagementSystem.Components.ColorChanger.Control.ColorChangerComponents" Title="ColorChangerWindow" Width="487" Height="459" WindowStartupLocation="CenterScreen" WindowStyle="None" ResizeMode="NoResize" AllowDrop="True" Background="Transparent" AllowsTransparency="True">
+    <Grid  x:Name="Layout" Width="474" MouseDown="Layout_MouseDown" Height="413" >
+        <Image   HorizontalAlignment="Left" VerticalAlignment="Center" Width="474" Height="413" Source="/Images\mainbackground2.png" />
+        <MyNamespace:ColorSelector Width="395" Height="347" x:Name="ColorSelector1" Margin="34,31,45,35"></MyNamespace:ColorSelector>
+    
+    </Grid>
+</Window>

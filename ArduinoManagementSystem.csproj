@@ -1,0 +1,592 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{9BAD3AC2-4CC6-48BE-9F5A-2FC704F9A837}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ArduinoManagementSystem</RootNamespace>
+    <AssemblyName>ArduinoManagementSystem</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>icon.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Bass.Net">
+      <HintPath>..\Bass.Net.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.Outlook, Version=14.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="NAudio">
+      <HintPath>..\NAudio.dll</HintPath>
+    </Reference>
+    <Reference Include="NAudio.WindowsMediaFormat">
+      <HintPath>..\NAudio.WindowsMediaFormat.dll</HintPath>
+    </Reference>
+    <Reference Include="PC_VolumeControl">
+      <HintPath>..\PC_VolumeControl.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="VkNet">
+      <HintPath>..\VkNet.dll</HintPath>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="3D\ContentControl3D.cs" />
+    <Compile Include="3D\EasingDoubleAnimation.cs" />
+    <Compile Include="3D\EasingEquation.cs" />
+    <Compile Include="3D\EasingEquations.cs" />
+    <Compile Include="3D\RotationEasingMode.cs" />
+    <Compile Include="Animations\PredefinedAnimations.cs" />
+    <Compile Include="Arduino\ArduinoCommunication.cs" />
+    <Compile Include="Animations\ColorAnimationProvider.cs" />
+    <Compile Include="Arduino\ArduinoDataTypes.cs" />
+    <Compile Include="Components\ColorChanger\Control\ColorChangerWindow.xaml.cs">
+      <DependentUpon>ColorChangerWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Components\Email\EmailControl.xaml.cs">
+      <DependentUpon>EmailControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Components\IconButton.xaml.cs">
+      <DependentUpon>IconButton.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Components\LoadingStatus.xaml.cs">
+      <DependentUpon>LoadingStatus.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Components\MusicPlayer\Control\PlayerComponents\Converters.cs" />
+    <Compile Include="Components\MusicPlayer\Control\PlayerComponents\FocusExtension.cs" />
+    <Compile Include="Components\MusicPlayer\Control\PlayerComponents\GradientPath.cs" />
+    <Compile Include="Components\MusicPlayer\Control\PlayerComponents\PlayList.xaml.cs">
+      <DependentUpon>PlayList.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Components\MusicPlayer\Control\PlayerComponents\PlayListFolder.xaml.cs">
+      <DependentUpon>PlayListFolder.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Components\MusicPlayer\Control\PlayerComponents\PlayListFolderHeader.xaml.cs">
+      <DependentUpon>PlayListFolderHeader.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Components\MusicPlayer\Control\PlayerComponents\PlayListHelpers.cs" />
+    <Compile Include="Components\MusicPlayer\Control\PlayerComponents\PlayListListBox.cs" />
+    <Compile Include="Components\MusicPlayer\Control\PlayerComponents\RangeObservableCollection.cs" />
+    <Compile Include="Components\MusicPlayer\Control\PlayerComponents\RenameControl.xaml.cs">
+      <DependentUpon>RenameControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Components\MusicPlayer\Control\PlayerComponents\RootPlayListFolder.cs" />
+    <Compile Include="Components\MusicPlayer\Control\PlayerComponents\TrackOrFolderTemplateSelector.cs" />
+    <Compile Include="Components\MusicPlayer\Control\PlayerComponents\TreeHepler.cs" />
+    <Compile Include="Components\MusicPlayer\Control\PlayerComponents\VolumeControllerDiodes.xaml.cs">
+      <DependentUpon>VolumeControllerDiodes.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Components\MusicPlayer\Control\Vkontakte\AutorizationWindow.xaml.cs">
+      <DependentUpon>AutorizationWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Components\MusicPlayer\Control\Vkontakte\TrackNameConverter.cs" />
+    <Compile Include="Components\MusicPlayer\Control\Vkontakte\VKSelector.xaml.cs">
+      <DependentUpon>VKSelector.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Components\MusicPlayer\Models\DownloadProgress.cs" />
+    <Compile Include="Components\MusicPlayer\Models\MusicCollection.cs" />
+    <Compile Include="Components\MusicPlayer\Control\Vkontakte\VKAudioProvider.cs" />
+    <Compile Include="Components\MusicPlayer\Models\ISelectable.cs" />
+    <Compile Include="Components\SystemController\Control\SystemComponents\AnalogMeter.xaml.cs">
+      <DependentUpon>AnalogMeter.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Components\SystemController\Control\SystemWidget.xaml.cs">
+      <DependentUpon>SystemWidget.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Components\SystemController\Core\SystemViewerCore.cs" />
+    <Compile Include="Configuration.cs" />
+    <Compile Include="FileHelper.cs" />
+    <Compile Include="Menu.xaml.cs">
+      <DependentUpon>Menu.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="OpacityTransaction.xaml.cs">
+      <DependentUpon>OpacityTransaction.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="OpacityTransactionOverlay.xaml.cs">
+      <DependentUpon>OpacityTransactionOverlay.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ScreenshotCreator.cs" />
+    <Compile Include="TabItemHeader.xaml.cs">
+      <DependentUpon>TabItemHeader.xaml</DependentUpon>
+    </Compile>
+    <Page Include="Components\ColorChanger\Control\ColorChanger.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Components\ColorChanger\Control\ColorChangerComponents\ColorLevelsDisplay.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Components\ColorChanger\Control\ColorChangerComponents\ColorSelector.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Components\ColorChanger\Control\ColorChangerComponents\ColorSlider.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Components\ColorChanger\Control\ColorChangerComponents\Digit.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Components\ColorChanger\Control\ColorChangerComponents\DigitDisplay.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Components\ColorChanger\Control\ColorChangerWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Components\Email\EmailControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Components\IconButton.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Components\LoadingStatus.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Components\MusicPlayer\Control\PlayerComponents\ChannelVisualiser.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Components\MusicPlayer\Control\PlayerComponents\DataVisualizer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Components\MusicPlayer\Control\PlayerComponents\ImageButton.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Components\MusicPlayer\Control\PlayerComponents\LigthLamp.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Components\MusicPlayer\Control\PlayerComponents\PlayList.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Components\MusicPlayer\Control\PlayerComponents\PlayListFolder.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Components\MusicPlayer\Control\PlayerComponents\PlayListFolderHeader.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Components\MusicPlayer\Control\PlayerComponents\PlayListTrack.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Components\MusicPlayer\Control\PlayerComponents\RenameControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Components\MusicPlayer\Control\PlayerComponents\SoundDynamic.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Components\MusicPlayer\Control\PlayerComponents\Timer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Components\MusicPlayer\Control\PlayerComponents\TrackProgres.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Components\MusicPlayer\Control\PlayerComponents\VolumeController.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Components\MusicPlayer\Control\PlayerComponents\VolumeControllerDiodes.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Components\MusicPlayer\Control\PlayerComponents\WaveVisualizer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Components\MusicPlayer\Control\PlayerControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Components\MusicPlayer\Control\Vkontakte\AutorizationWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Components\MusicPlayer\Control\Vkontakte\VKSelector.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Components\SystemController\Control\SystemComponents\AnalogMeter.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Components\SystemController\Control\SystemViewer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Components\SystemController\Control\SystemWidget.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Components\ColorChanger\Control\ColorChanger.xaml.cs">
+      <DependentUpon>ColorChanger.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Components\ColorChanger\Control\ColorChangerComponents\ColorLevelsDisplay.xaml.cs">
+      <DependentUpon>ColorLevelsDisplay.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Components\ColorChanger\Control\ColorChangerComponents\ColorSelector.xaml.cs">
+      <DependentUpon>ColorSelector.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Components\ColorChanger\Control\ColorChangerComponents\ColorSlider.xaml.cs">
+      <DependentUpon>ColorSlider.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Components\ColorChanger\Control\ColorChangerComponents\Digit.xaml.cs">
+      <DependentUpon>Digit.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Components\ColorChanger\Control\ColorChangerComponents\DigitDisplay.xaml.cs">
+      <DependentUpon>DigitDisplay.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Components\ColorChanger\Control\Core\ColorsConverter.cs" />
+    <Compile Include="Components\MusicPlayer\Control\PlayerComponents\ChannelVisualiser.xaml.cs">
+      <DependentUpon>ChannelVisualiser.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Components\MusicPlayer\Control\PlayerComponents\DataVisualizer.xaml.cs">
+      <DependentUpon>DataVisualizer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Components\MusicPlayer\Control\PlayerComponents\ImageButton.xaml.cs">
+      <DependentUpon>ImageButton.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Components\MusicPlayer\Control\PlayerComponents\LigthLamp.xaml.cs">
+      <DependentUpon>LigthLamp.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Components\MusicPlayer\Control\PlayerComponents\PlayListTrack.xaml.cs">
+      <DependentUpon>PlayListTrack.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Components\MusicPlayer\Control\PlayerComponents\SoundDynamic.xaml.cs">
+      <DependentUpon>SoundDynamic.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Components\MusicPlayer\Control\PlayerComponents\Timer.xaml.cs">
+      <DependentUpon>Timer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Components\MusicPlayer\Control\PlayerComponents\TrackProgres.xaml.cs">
+      <DependentUpon>TrackProgres.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Components\MusicPlayer\Control\PlayerComponents\VolumeController.xaml.cs">
+      <DependentUpon>VolumeController.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Components\MusicPlayer\Control\PlayerComponents\WaveVisualizer.xaml.cs">
+      <DependentUpon>WaveVisualizer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Components\MusicPlayer\Control\PlayerControl.xaml.cs">
+      <DependentUpon>PlayerControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Components\MusicPlayer\Core\MusicPlayer.cs" />
+    <Compile Include="Components\MusicPlayer\Core\RecordManager.cs" />
+    <Compile Include="Components\MusicPlayer\Models\ChannelsInfo.cs" />
+    <Compile Include="Components\MusicPlayer\Models\Song.cs" />
+    <Compile Include="Components\MusicPlayer\Models\RecordedData.cs" />
+    <Compile Include="Components\MusicPlayer\Models\TimerData.cs" />
+    <Compile Include="Components\MusicPlayer\Models\VisualData.cs" />
+    <Compile Include="Components\SystemController\Control\SystemViewer.xaml.cs">
+      <DependentUpon>SystemViewer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="Menu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="OpacityTransaction.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="OpacityTransactionOverlay.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="TabItemHeader.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <None Include="app.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Components\MusicPlayer\Control\Images\0.png" />
+    <Resource Include="Components\MusicPlayer\Control\Images\1.png" />
+    <Resource Include="Components\MusicPlayer\Control\Images\2.png" />
+    <Resource Include="Components\MusicPlayer\Control\Images\3.png" />
+    <Resource Include="Components\MusicPlayer\Control\Images\4.png" />
+    <Resource Include="Components\MusicPlayer\Control\Images\5.png" />
+    <Resource Include="Components\MusicPlayer\Control\Images\6.png" />
+    <Resource Include="Components\MusicPlayer\Control\Images\7.png" />
+    <Resource Include="Components\MusicPlayer\Control\Images\8.png" />
+    <Resource Include="Components\MusicPlayer\Control\Images\9.png" />
+    <Resource Include="Components\MusicPlayer\Control\Images\bg.png" />
+    <Resource Include="Components\MusicPlayer\Control\Images\points.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Components\MusicPlayer\Control\Images\111.png" />
+    <Resource Include="Components\MusicPlayer\Control\Images\add.png" />
+    <Resource Include="Components\MusicPlayer\Control\Images\add2.png" />
+    <Resource Include="Components\MusicPlayer\Control\Images\back.png" />
+    <Resource Include="Components\MusicPlayer\Control\Images\back1.png" />
+    <Resource Include="Components\MusicPlayer\Control\Images\back2.png" />
+    <Resource Include="Components\MusicPlayer\Control\Images\dataVisualizerBG.png" />
+    <Resource Include="Components\MusicPlayer\Control\Images\delete.png" />
+    <Resource Include="Components\MusicPlayer\Control\Images\delete2.png" />
+    <Resource Include="Components\MusicPlayer\Control\Images\dynamic1.png" />
+    <Resource Include="Components\MusicPlayer\Control\Images\dynamic2.png" />
+    <Resource Include="Components\MusicPlayer\Control\Images\next.png" />
+    <Resource Include="Components\MusicPlayer\Control\Images\next1.png" />
+    <Resource Include="Components\MusicPlayer\Control\Images\next2.png" />
+    <Resource Include="Components\MusicPlayer\Control\Images\off.png" />
+    <Resource Include="Components\MusicPlayer\Control\Images\off1.png" />
+    <Resource Include="Components\MusicPlayer\Control\Images\off2.png" />
+    <Resource Include="Components\MusicPlayer\Control\Images\on.png" />
+    <Resource Include="Components\MusicPlayer\Control\Images\osciloscopeBase.png" />
+    <Resource Include="Components\MusicPlayer\Control\Images\osciloscopeBG.png" />
+    <Resource Include="Components\MusicPlayer\Control\Images\osciloscopeBG2.png" />
+    <Resource Include="Components\MusicPlayer\Control\Images\pause.png" />
+    <Resource Include="Components\MusicPlayer\Control\Images\pause1.png" />
+    <Resource Include="Components\MusicPlayer\Control\Images\pause2.png" />
+    <Resource Include="Components\MusicPlayer\Control\Images\pick.png" />
+    <Resource Include="Components\MusicPlayer\Control\Images\play.png" />
+    <Resource Include="Components\MusicPlayer\Control\Images\play1.png" />
+    <Resource Include="Components\MusicPlayer\Control\Images\play2.png" />
+    <Resource Include="Components\MusicPlayer\Control\Images\playlistBG.png" />
+    <Resource Include="Components\MusicPlayer\Control\Images\stop.png" />
+    <Resource Include="Components\MusicPlayer\Control\Images\stop1.png" />
+    <Resource Include="Components\MusicPlayer\Control\Images\stop2.png" />
+    <Resource Include="Components\MusicPlayer\Control\Images\trackBorder.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Components\MusicPlayer\Control\Images\trackbg.png" />
+    <Resource Include="Components\MusicPlayer\Control\Images\trackLines.png" />
+    <Resource Include="Components\MusicPlayer\Control\Images\trackSelector.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Components\MusicPlayer\Control\Images\volume1.png" />
+    <Resource Include="Components\MusicPlayer\Control\Images\volumeBG.png" />
+    <Resource Include="Components\MusicPlayer\Control\Images\volumeLine1.png" />
+    <Resource Include="Components\MusicPlayer\Control\Images\volumeLine2.png" />
+    <Resource Include="Components\MusicPlayer\Control\Images\volumeShadow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Components\MusicPlayer\Control\Images\lamp.png" />
+    <Resource Include="Components\MusicPlayer\Control\Images\lamp1.png" />
+    <Resource Include="Components\MusicPlayer\Control\Images\lamp2.png" />
+    <Resource Include="Components\MusicPlayer\Control\Images\lamp3.png" />
+    <Resource Include="Components\MusicPlayer\Control\Images\lamp4.png" />
+    <Resource Include="Components\MusicPlayer\Control\Images\left.png" />
+    <Resource Include="Components\MusicPlayer\Control\Images\right.png" />
+    <Resource Include="Components\MusicPlayer\Control\Images\top.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Components\MusicPlayer\Control\Images\addHover.png" />
+    <Resource Include="Components\MusicPlayer\Control\Images\clear.png" />
+    <Resource Include="Components\MusicPlayer\Control\Images\clearHover.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Components\MusicPlayer\Control\Images\chanellVisualizerBG.png" />
+    <Resource Include="Components\MusicPlayer\Control\Images\chanellVisualizerDiodes.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Components\ColorChanger\Control\Images\Digits\0.png" />
+    <Resource Include="Components\ColorChanger\Control\Images\Digits\1.png" />
+    <Resource Include="Components\ColorChanger\Control\Images\Digits\2.png" />
+    <Resource Include="Components\ColorChanger\Control\Images\Digits\3.png" />
+    <Resource Include="Components\ColorChanger\Control\Images\Digits\4.png" />
+    <Resource Include="Components\ColorChanger\Control\Images\Digits\5.png" />
+    <Resource Include="Components\ColorChanger\Control\Images\Digits\6.png" />
+    <Resource Include="Components\ColorChanger\Control\Images\Digits\7.png" />
+    <Resource Include="Components\ColorChanger\Control\Images\Digits\8.png" />
+    <Resource Include="Components\ColorChanger\Control\Images\Digits\9.png" />
+    <Resource Include="Components\ColorChanger\Control\Images\Digits\background.png" />
+    <Resource Include="Components\ColorChanger\Control\Images\Digits\bottom.png" />
+    <Resource Include="Components\ColorChanger\Control\Images\Digits\center.png" />
+    <Resource Include="Components\ColorChanger\Control\Images\Digits\digitBG.png" />
+    <Resource Include="Components\ColorChanger\Control\Images\Digits\leftBottom.png" />
+    <Resource Include="Components\ColorChanger\Control\Images\Digits\leftTop.png" />
+    <Resource Include="Components\ColorChanger\Control\Images\Digits\rigthBottom.png" />
+    <Resource Include="Components\ColorChanger\Control\Images\Digits\rigthTop.png" />
+    <Resource Include="Components\ColorChanger\Control\Images\Digits\top.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Components\ColorChanger\Control\Images\background.png" />
+    <Resource Include="Components\ColorChanger\Control\Images\changer.png" />
+    <Resource Include="Components\ColorChanger\Control\Images\lampBG.png" />
+    <Resource Include="Components\ColorChanger\Control\Images\lampTop.png" />
+    <Resource Include="Components\ColorChanger\Control\Images\palette.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Components\ColorChanger\Control\Images\colorDisplayBG.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Components\ColorChanger\Control\Images\picker.png" />
+    <Resource Include="Components\ColorChanger\Control\Images\pickerBG.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Components\ColorChanger\Control\Images\grid.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Components\ColorChanger\Control\Images\digitBG.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\mainbackground.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Components\ColorChanger\Control\Images\choserBG.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\tabBG.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\colorSelector.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\tabBGActive.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Components\SystemController\Control\Images\background.png" />
+    <Resource Include="Components\SystemController\Control\Images\pointer.png" />
+    <Resource Include="Components\SystemController\Control\Images\title.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Components\MusicPlayer\Control\Images\glass.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Components\MusicPlayer\Control\Images\playlistSelectionBG.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Components\MusicPlayer\Control\Images\osciloscopeBG3.png" />
+    <Content Include="icon.ico">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Resource Include="Images\mainbackground2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Components\MusicPlayer\Control\Images\VolumeLigth\1.png" />
+    <Resource Include="Components\MusicPlayer\Control\Images\VolumeLigth\10.png" />
+    <Resource Include="Components\MusicPlayer\Control\Images\VolumeLigth\11.png" />
+    <Resource Include="Components\MusicPlayer\Control\Images\VolumeLigth\12.png" />
+    <Resource Include="Components\MusicPlayer\Control\Images\VolumeLigth\2.png" />
+    <Resource Include="Components\MusicPlayer\Control\Images\VolumeLigth\3.png" />
+    <Resource Include="Components\MusicPlayer\Control\Images\VolumeLigth\4.png" />
+    <Resource Include="Components\MusicPlayer\Control\Images\VolumeLigth\5.png" />
+    <Resource Include="Components\MusicPlayer\Control\Images\VolumeLigth\6.png" />
+    <Resource Include="Components\MusicPlayer\Control\Images\VolumeLigth\7.png" />
+    <Resource Include="Components\MusicPlayer\Control\Images\VolumeLigth\8.png" />
+    <Resource Include="Components\MusicPlayer\Control\Images\VolumeLigth\9.png" />
+    <Resource Include="Components\MusicPlayer\Control\Images\VolumeLigth\volumeBG1.png" />
+    <Resource Include="Components\MusicPlayer\Control\Images\VolumeLigth\volumeBG2.png" />
+    <Resource Include="Components\MusicPlayer\Control\Images\VolumeLigth\volumeTop.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Components\MusicPlayer\Control\Images\volumeBG22.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Untitled3ColorMR5.png" />
+    <Resource Include="Images\Untitled3EmailMR6.png" />
+    <Resource Include="Images\Untitled3MusicMR3.png" />
+    <Resource Include="Images\Untitled3SystemMR4.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,184 @@
+﻿<UserControl x:Class="ArduinoManagementSystem.Components.SystemController.Control.SystemComponents.AnalogMeter"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="236" Background="Transparent" d:DesignWidth="342">
+    <Canvas Background="Transparent">
+        <Image Stretch="Fill"  Width="276" Height="221" Canvas.Top="9" Canvas.Left="34" Source="/ArduinoManagementSystem;component/Components/SystemController/Control/Images/background.png"></Image>
+        <TextBlock Name="AnalogText" Text="{Binding ControlText,FallbackValue=CPU}"  Foreground="White" Background="Transparent"  Canvas.Top="125" TextAlignment="Center" Width="241" Canvas.Left="48" FontSize="18" Opacity="0.4" FontWeight="ExtraBold" FontFamily="Rockwell"></TextBlock>
+        <Canvas Height="274" Width="28" Canvas.Left="156" Canvas.Top="77">
+
+            <Canvas.RenderTransform>
+                <RotateTransform CenterX="14" x:Name="Pointer" CenterY="114" Angle="0"></RotateTransform>
+            </Canvas.RenderTransform>
+            <Polygon Points="10, 95 13.5,2 14.5,2 18, 95 " Fill="White"   Stroke="Transparent" StrokeThickness="4"  >
+                <Polygon.Effect>
+                    <DropShadowEffect Direction="{Binding Angle, ElementName=Pointer, UpdateSourceTrigger=PropertyChanged}" BlurRadius="2" Opacity="0.3" ShadowDepth="4"></DropShadowEffect>
+                </Polygon.Effect>
+            </Polygon>
+            <Polygon Points="9, 115 8,92 20,92 18, 143 "    Stroke="Transparent" StrokeThickness="4"   >
+                <Polygon.Effect>
+                    <DropShadowEffect Direction="0" BlurRadius="2" Opacity="0.3" ShadowDepth="4"></DropShadowEffect>
+                </Polygon.Effect>
+                <Polygon.Fill>
+                    <LinearGradientBrush StartPoint="0,0.5" EndPoint="1,0.5">
+                        <GradientStopCollection>
+                            <GradientStop Offset="0" Color="White"></GradientStop>
+                            <GradientStop Offset="0.5" Color="#9e9e9e"></GradientStop>
+                            <GradientStop Offset="1" Color="White"></GradientStop>
+                        </GradientStopCollection>
+                    </LinearGradientBrush>
+                </Polygon.Fill>
+            </Polygon>
+            <Ellipse  Height="27" Width="28" Stroke="Transparent" Canvas.Top="100" >
+                <Ellipse.Fill>
+                    <LinearGradientBrush StartPoint="0,0.5" EndPoint="1,0.5">
+                        <GradientStopCollection>
+                            <GradientStop Offset="0.3" Color="White"></GradientStop>
+                            <GradientStop Offset="0.5" Color="#9e9e9e"></GradientStop>
+                            <GradientStop Offset="0.7" Color="White"></GradientStop>
+                        </GradientStopCollection>
+                    </LinearGradientBrush>
+                </Ellipse.Fill>
+            </Ellipse>
+        </Canvas>
+
+        <Rectangle Height="12" Width="2" Canvas.Left="170" Fill="#6eb6b2" Canvas.Top="50"></Rectangle>
+        <Rectangle Height="12" Width="2" Canvas.Left="286" Fill="#cd1e23" Canvas.Top="100">
+            <Rectangle.RenderTransform>
+                <RotateTransform Angle="45"></RotateTransform>
+            </Rectangle.RenderTransform>
+        </Rectangle>
+
+        <Rectangle Height="12" Width="2" Canvas.Left="267" Fill="#cd1e23" Canvas.Top="82">
+            <Rectangle.RenderTransform>
+                <RotateTransform Angle="36"></RotateTransform>
+            </Rectangle.RenderTransform>
+        </Rectangle>
+        <Rectangle Height="12" Width="2" Canvas.Left="246" Fill="#cd1e23" Canvas.Top="68">
+            <Rectangle.RenderTransform>
+                <RotateTransform Angle="27"></RotateTransform>
+            </Rectangle.RenderTransform>
+        </Rectangle>
+        <Rectangle Height="12" Width="2" Canvas.Left="222" Fill="#6eb6b2" Canvas.Top="59">
+            <Rectangle.RenderTransform>
+                <RotateTransform Angle="18"></RotateTransform>
+            </Rectangle.RenderTransform>
+        </Rectangle>
+        <Rectangle Height="12" Width="2" Canvas.Left="197" Fill="#6eb6b2" Canvas.Top="52">
+            <Rectangle.RenderTransform>
+                <RotateTransform Angle="9"></RotateTransform>
+            </Rectangle.RenderTransform>
+        </Rectangle>
+        <Rectangle Height="12" Width="2" Canvas.Left="54" Fill="#6eb6b2" Canvas.Top="100">
+            <Rectangle.RenderTransform>
+                <RotateTransform Angle="-45"></RotateTransform>
+            </Rectangle.RenderTransform>
+        </Rectangle>
+
+        <Rectangle Height="12" Width="2" Canvas.Left="72" Fill="#6eb6b2" Canvas.Top="82">
+            <Rectangle.RenderTransform>
+                <RotateTransform Angle="-36"></RotateTransform>
+            </Rectangle.RenderTransform>
+        </Rectangle>
+        <Rectangle Height="12" Width="2" Canvas.Left="94" Fill="#6eb6b2" Canvas.Top="68">
+            <Rectangle.RenderTransform>
+                <RotateTransform Angle="-27"></RotateTransform>
+            </Rectangle.RenderTransform>
+        </Rectangle>
+        <Rectangle Height="12" Width="2" Canvas.Left="119" Fill="#6eb6b2" Canvas.Top="59">
+            <Rectangle.RenderTransform>
+                <RotateTransform Angle="-18"></RotateTransform>
+            </Rectangle.RenderTransform>
+        </Rectangle>
+        <Rectangle Height="12" Width="2" Canvas.Left="144" Fill="#6eb6b2" Canvas.Top="52">
+            <Rectangle.RenderTransform>
+                <RotateTransform Angle="-9"></RotateTransform>
+            </Rectangle.RenderTransform>
+        </Rectangle>
+
+
+        <Rectangle Height="8" Width="2" Canvas.Left="183" Fill="#6eb6b2" Canvas.Top="50">
+            <Rectangle.RenderTransform>
+                <RotateTransform Angle="4.5"></RotateTransform>
+            </Rectangle.RenderTransform>
+        </Rectangle>
+        <Rectangle Height="8" Width="2" Canvas.Left="210" Fill="#6eb6b2" Canvas.Top="54">
+            <Rectangle.RenderTransform>
+                <RotateTransform Angle="13.5"></RotateTransform>
+            </Rectangle.RenderTransform>
+        </Rectangle>
+        <Rectangle Height="8" Width="2" Canvas.Left="235" Fill="#6eb6b2" Canvas.Top="63">
+            <Rectangle.RenderTransform>
+                <RotateTransform Angle="22.5"></RotateTransform>
+            </Rectangle.RenderTransform>
+        </Rectangle>
+        <Rectangle Height="8" Width="2" Canvas.Left="257" Fill="#cd1e23" Canvas.Top="75">
+            <Rectangle.RenderTransform>
+                <RotateTransform Angle="31.5"></RotateTransform>
+            </Rectangle.RenderTransform>
+        </Rectangle>
+        <Rectangle Height="8" Width="2" Canvas.Left="277" Fill="#cd1e23" Canvas.Top="92">
+            <Rectangle.RenderTransform>
+                <RotateTransform Angle="40.5"></RotateTransform>
+            </Rectangle.RenderTransform>
+        </Rectangle>
+
+        <Rectangle Height="8" Width="2" Canvas.Left="157" Fill="#6eb6b2" Canvas.Top="50">
+            <Rectangle.RenderTransform>
+                <RotateTransform Angle="-4.5"></RotateTransform>
+            </Rectangle.RenderTransform>
+        </Rectangle>
+        <Rectangle Height="8" Width="2" Canvas.Left="131" Fill="#6eb6b2" Canvas.Top="54">
+            <Rectangle.RenderTransform>
+                <RotateTransform Angle="-13.5"></RotateTransform>
+            </Rectangle.RenderTransform>
+        </Rectangle>
+        <Rectangle Height="8" Width="2" Canvas.Left="107" Fill="#6eb6b2" Canvas.Top="63">
+            <Rectangle.RenderTransform>
+                <RotateTransform Angle="-22.5"></RotateTransform>
+            </Rectangle.RenderTransform>
+        </Rectangle>
+        <Rectangle Height="8" Width="2" Canvas.Left="83" Fill="#6eb6b2" Canvas.Top="75">
+            <Rectangle.RenderTransform>
+                <RotateTransform Angle="-31.5"></RotateTransform>
+            </Rectangle.RenderTransform>
+        </Rectangle>
+        <Rectangle Height="8" Width="2" Canvas.Left="63" Fill="#6eb6b2" Canvas.Top="92">
+            <Rectangle.RenderTransform>
+                <RotateTransform Angle="-40.5"></RotateTransform>
+            </Rectangle.RenderTransform>
+        </Rectangle>
+
+        <TextBlock Text="0" x:Name="percent0" Foreground="#6eb6b2" Canvas.Top="118" Height="15" Width="26" Canvas.Left="55" TextAlignment="Center" Padding="0,0,0,0">
+            <TextBlock.RenderTransform>
+                <RotateTransform Angle="-45"></RotateTransform>
+            </TextBlock.RenderTransform>
+        </TextBlock>
+        <TextBlock Text="25" x:Name="percent25" Foreground="#6eb6b2" Canvas.Top="83" Height="16" Width="50" Canvas.Left="90" TextAlignment="Center" Padding="0,0,0,0">
+            <TextBlock.RenderTransform>
+                <RotateTransform Angle="-22.5"></RotateTransform>
+            </TextBlock.RenderTransform>
+        </TextBlock>
+
+        <TextBlock Text="50" x:Name="percent50" Foreground="#6eb6b2" Canvas.Top="60" Height="16" Width="50" Canvas.Left="146" TextAlignment="Center" Padding="0,0,0,0">
+            <TextBlock.RenderTransform>
+                <RotateTransform Angle="0"></RotateTransform>
+            </TextBlock.RenderTransform>
+        </TextBlock>
+        <TextBlock Text="75" x:Name="percent75" Foreground="#6eb6b2" Canvas.Top="66" Height="16" Width="50" Canvas.Left="205" TextAlignment="Center" Padding="0,0,0,0">
+            <TextBlock.RenderTransform>
+                <RotateTransform Angle="22.5"></RotateTransform>
+            </TextBlock.RenderTransform>
+        </TextBlock>
+        <TextBlock Text="100" x:Name="percent100" Foreground="#cd1e23" Canvas.Top="90" Height="16" Width="50" Canvas.Left="262" TextAlignment="Center" Padding="0,0,0,0">
+            <TextBlock.RenderTransform>
+                <RotateTransform Angle="45"></RotateTransform>
+            </TextBlock.RenderTransform>
+        </TextBlock>
+        
+        <Image Stretch="Fill"  Height="236" Width="342" Canvas.Top="0" Source="/ArduinoManagementSystem;component/Components/SystemController/Control/Images/title.png" Canvas.Left="0"></Image>
+    </Canvas>
+</UserControl>

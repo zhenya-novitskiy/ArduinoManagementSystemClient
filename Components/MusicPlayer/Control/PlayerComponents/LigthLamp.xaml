@@ -1,0 +1,61 @@
+﻿<UserControl x:Class="ArduinoManagementSystem.Components.MusicPlayer.Control.PlayerComponents.LigthLamp"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="88" d:DesignWidth="94">
+    <UserControl.Resources>
+        <Storyboard x:Key="moveLigth">
+            <DoubleAnimation Storyboard.TargetName="Container" Storyboard.TargetProperty="(Canvas.Left)"  To="-3"   Duration="0:0:0.10" />
+            <DoubleAnimation Storyboard.TargetName="Container" Storyboard.TargetProperty="(Canvas.Top)"  To="-2"  Duration="0:0:0.10" />
+            <DoubleAnimation Storyboard.TargetName="Container" Storyboard.TargetProperty="(Canvas.Left)" From="-3" To="-7"  BeginTime="0:0:0.10" Duration="0:0:0.55" />
+            <DoubleAnimation Storyboard.TargetName="Container" Storyboard.TargetProperty="(Canvas.Top)" From="-2" To="-6" BeginTime="0:0:0.10" Duration="0:0:0.55" />
+            <DoubleAnimation Storyboard.TargetName="blur" Storyboard.TargetProperty="Radius"  To="15"  Duration="0:0:0.10" />
+            <DoubleAnimation Storyboard.TargetName="blur" Storyboard.TargetProperty="Radius"  To="2" BeginTime="0:0:0.10" Duration="0:0:0.55" />
+
+        </Storyboard>
+    </UserControl.Resources>
+    <Canvas>
+        <Image x:Name="img3" Source="/Components\MusicPlayer\Control\Images\lamp3.png" Stretch="Uniform" Height="60" Width="60" Canvas.Left="0" Canvas.Top="0"></Image>
+
+        <Canvas x:Name="Container" Canvas.Left="-7" Canvas.Top="-7" >
+            <Polygon x:Name="lighter2"   Stroke="{x:Null}" Points="35,0 30,0 52,0 60,20 25,20" Canvas.Left="-10" Canvas.Top="-26">
+                <Polygon.RenderTransform>
+                    <RotateTransform Angle="122" 
+              CenterX="20" CenterY="20" />
+                </Polygon.RenderTransform>
+                <Polygon.Fill>
+                    <LinearGradientBrush x:Name="GradBorder" EndPoint="0,1" StartPoint="0,0">
+                        <GradientStop Color="Red" Offset="0" />
+                        <GradientStop Color="#00FF0000" Offset="1" />
+                    </LinearGradientBrush>
+                </Polygon.Fill>
+                <Polygon.Effect>
+                    <BlurEffect Radius="5"></BlurEffect>
+                </Polygon.Effect>
+            </Polygon>
+
+            <Image x:Name="img" Source="/Components\MusicPlayer\Control\Images\lamp1.png" Stretch="Uniform" Height="60" Width="60" Canvas.Left="0" Canvas.Top="0"></Image>
+            <Polygon x:Name="lighter"  Stroke="{x:Null}" Points="34,0 0,0 55,0 90,80 0,80" Canvas.Left="23" Canvas.Top="49">
+                <Polygon.Effect>
+                    <BlurEffect x:Name="blur" Radius="0"></BlurEffect>
+                </Polygon.Effect>
+
+                <Polygon.RenderTransform>
+                    <RotateTransform Angle="-58" 
+              CenterX="20" CenterY="20" />
+                </Polygon.RenderTransform>
+                <Polygon.Fill>
+                    <RadialGradientBrush GradientOrigin="0.5,0.0" Center="0.5,0.5" >
+                        <GradientStop Color="Red" x:Name="GradientStop1" Offset="0" />
+                        <GradientStop Color="Transparent" x:Name="GradientStop2" Offset="1" />
+                    </RadialGradientBrush>
+                </Polygon.Fill>
+            </Polygon>
+            <Image x:Name="img4" Source="/Components\MusicPlayer\Control\Images\lamp4.png" Stretch="Uniform" Height="60" Width="60" Canvas.Left="0" Canvas.Top="0"></Image>
+        </Canvas>
+        <Image x:Name="img2" Source="/Components\MusicPlayer\Control\Images\lamp2.png" Stretch="Uniform" Height="60" Width="60" Canvas.Left="0" Canvas.Top="0"></Image>
+        <TextBlock Canvas.Left="19"  Foreground="White" Canvas.Top="32" Height="23" Name="textBlock1" Text="{Binding TextColor, Mode=TwoWay}" />
+    </Canvas>
+</UserControl>
